@@ -1,0 +1,48 @@
+
+<!-- Item need to be searched first then only the list will be displayed in table you need to put the curser in search 
+bar and enter a word and erase it then you will able to to find the stored items and then after you can able to 
+search the item you wants/
+When i remove the filter pipe then its working fine, but with the filter pipe on ngFor, i need to anter a character and 
+then delete it then only its shows the data list.
+
+2- I have created a capitalize pipe to make the first alphabet of first and last name capital-->
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" 
+    [(ngModel)]="filterName" 
+    id="search" 
+    placeholder="Type to Search" 
+    class="form-control"
+    style="margin-top:30px">
+
+    <hr>
+    <h3>Form Values</h3>
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Designation</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of nameArray | filter:filterName">
+              <td>{{item.fname}}</td>
+              <td>{{item.lname | capitalize}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.date| date:'shortDate'}}</td>
+              <td>{{item.designation|uppercase}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+</div>

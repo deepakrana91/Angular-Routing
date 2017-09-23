@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          required
+          name="fname"
+          id="fname"
+          #fname="ngModel">
+        </div>
+        <span class="help-block" *ngIf="!fname.valid && fname.touched">Please enter valid name</span>
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" 
+            name="lname"
+            required
+            class="form-control" 
+            ngModel
+            #lname="ngModel"
+            id="lname">
+        </div>
+        <span class="help-block" *ngIf="!lname.valid && lname.touched">Please enter Last name</span>
+        <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" 
+              required
+              email
+              name="email"
+              class="form-control" 
+              ngModel
+              #email="ngModel"
+              id="email">
+        </div>
+        <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" 
+          required
+          name="date"
+          class="form-control" 
+          ngModel
+          id="date">
+    </div>
+        <div class="form-group">
+            <select name="select" 
+            id="select" 
+            name="select"
+            class="form-control"
+            [ngModel]="defaultDesignation"
+            ngModel>
+                <option [ngValue]="item.value" *ngFor="let item of desigArray">{{item.value}}</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+      </form>
+      <hr>
+      <button class="btn btn-primary " (click)="logIn()">Log In</button>
+      <button class="btn btn-default" (click)="logOut()">Log Out</button>
+      <div class="row">
+        <br>
+        <p>Click on login to Enable the search data page</p>
+        <p>Click on logout to disable the search data page</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    
